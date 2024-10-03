@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  latex-vscode:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: latex_vscode_container
+    volumes:
+      - /home/j/Latex/:/usr/src/app/workspace
+    stdin_open: true
+    tty: true
