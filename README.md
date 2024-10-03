@@ -57,7 +57,17 @@ By attaching VSCode directly to the container, users can take full advantage of 
    - The `docker-compose.yml` file orchestrates the container, defining the volumes needed to share files between the host machine and the container. It ensures that the `workspace` folder on your local system is mounted inside the container at `/usr/src/app/workspace`.
    - The `stdin_open` and `tty` options are set to keep the container running interactively, allowing you to attach to it using VSCode at any time.
 
-3. **Attaching VSCode to the Container**:
+3. **Building and running container**:
+   - To build and run the container you need to use the following commands:
+    ```bash
+    docker compose build
+    ```
+
+    ```bash
+    docker compose up -d
+    ```
+
+4. **Attaching VSCode to the Container**:
    - Once the container is running, instead of using **Remote - Containers**, you attach directly to the container using the **Remote Development** extension pack.
    - To attach VSCode to the running container:
      - Open the **Command Palette** in VSCode (`Ctrl + Shift + P`).
@@ -65,14 +75,14 @@ By attaching VSCode directly to the container, users can take full advantage of 
      - Choose the container you wish to attach to (e.g., `latex_vscode_container`).
      - Once attached, VSCode behaves as though it is running directly inside the container, giving you access to the container’s filesystem and LaTeX environment.
    
-4. **Using VSCode LaTeX Extensions**:
+5. **Using VSCode LaTeX Extensions**:
    - After attaching to the container, you can install and configure LaTeX-specific extensions within VSCode.
    - **LaTeX Workshop** and **LaTeX Utilities** should be installed for optimal LaTeX development. These extensions will allow you to:
      - Edit LaTeX code with syntax highlighting and autocompletion.
      - Compile and preview LaTeX documents directly within VSCode.
      - Manage citations, references, and LaTeX commands with ease.
 
-5. **Reproducibility and Portability**:
+6. **Reproducibility and Portability**:
    - This Docker setup ensures that the LaTeX environment is consistent and portable across different systems. Whether you’re using a Linux, Windows, or macOS machine, the Docker container provides the same LaTeX environment every time.
    - You can share this Docker setup (the Dockerfile and `docker-compose.yml`) with colleagues, enabling them to quickly spin up the same LaTeX environment on their own machines, reducing setup time and configuration inconsistencies.
 
